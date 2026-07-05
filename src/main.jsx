@@ -4,9 +4,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './i18n';
 import Entro from './pages/Entro'
-import GameOnEasy from './pages/GameOnEasy';
-import GameOnMedium from './pages/GameOnMedium';
-import GameOnHard from './pages/GameOnHard';
+import GamePage from './pages/GamePage';
 
 const routes = createBrowserRouter([
   {
@@ -14,16 +12,8 @@ const routes = createBrowserRouter([
     element:<Entro/>
   },
   {
-    path : "/level-easy",
-    element : <GameOnEasy/>
-  },
-  {
-    path : "/level-medium",
-    element : <GameOnMedium/>
-  },
-  {
-    path : "/level-hard",
-    element : <GameOnHard/>
+    path : "/level/:level",
+    element : <GamePage/>
   }
 ])
 

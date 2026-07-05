@@ -13,15 +13,15 @@ const EntroOfGame = () => {
             <p>{t("welcome_message")}</p>
             <div>
                 <div>
-                    <Link to="/level-easy">{t("levels.easy.name")}</Link>
+                    <Link to="/level/easy">{t("levels.easy.name")}</Link>
                     <p>{t("levels.easy.description")}</p>
                 </div>
                 <div>
-                    <Link to="/level-medium">{t("levels.medium.name")}</Link>
+                    <Link to="/level/medium">{t("levels.medium.name")}</Link>
                     <p>{t("levels.medium.description")}</p>
                 </div>
                 <div>
-                    <Link to="/level-hard">{t("levels.hard.name")}</Link>
+                    <Link to="/level/hard">{t("levels.hard.name")}</Link>
                     <p>{t("levels.hard.description")}</p>
                 </div>
             </div>
