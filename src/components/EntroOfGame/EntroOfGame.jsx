@@ -13,16 +13,12 @@ const EntroOfGame = () => {
             <p>{t("welcome_message")}</p>
             <div>
                 <div>
-                    <Link to="/level/easy">{t("levels.easy.name")}</Link>
-                    <p>{t("levels.easy.description")}</p>
+                    <Link to="/level/medium">{t("levels.level 1.name")}</Link>
+                    <p>{t("levels.level 1.description")}</p>
                 </div>
                 <div>
-                    <Link to="/level/medium">{t("levels.medium.name")}</Link>
-                    <p>{t("levels.medium.description")}</p>
-                </div>
-                <div>
-                    <Link to="/level/hard">{t("levels.hard.name")}</Link>
-                    <p>{t("levels.hard.description")}</p>
+                    <Link to="/level/hard">{t("levels.level 2.name")}</Link>
+                    <p>{t("levels.level 2.description")}</p>
                 </div>
             </div>
             <button onClick={toggleLanguage}>{i18n.language === "en" ? "AR" : "EN" }</button>

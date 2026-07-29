@@ -2,16 +2,12 @@
     "game_title": "The Hidden Number Mystery 🔢",
     "welcome_message": "Think of a number between 0 and 100, and I’ll play the detective to uncover your secret! I’ll just need your help telling me if I’m getting close. Choose your challenge level and start the investigation",
     "levels": {
-        "easy": {
-            "name": "Easy",
-            "description": "I'll search with spontaneity and fun."
-        },
-        "medium": {
-            "name": "Medium",
+        "level 1": {
+            "name": "level 1",
             "description": "I'll rely on pure logic."
         },
-        "hard": {
-            "name": "Hard",
+        "level 2": {
+            "name": "level 2",
             "description": "I'll switch to expert mode and read your mind."
         }
     }
