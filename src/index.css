@@ -1,1 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 @import "tailwindcss";
+
+
+body {
+    font-family: "Cairo", sans-serif;
+    background: radial-gradient(900px 500px at 8% -8%, #FFD6A870 0%, transparent 55%),
+            radial-gradient(800px 500px at 100% 0%, #D9C6FF80 0%, transparent 55%),
+            radial-gradient(900px 600px at 50% 115%, #FFC1DE70 0%, transparent 55%),
+            #fff8ef;
+    min-height: 100vh;
+    margin: 0;
+    padding: 28px 16px 60px;
+}

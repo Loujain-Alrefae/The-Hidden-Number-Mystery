@@ -1,14 +1,16 @@
 {
-    "game_title": "The Hidden Number Mystery 🔢",
+    "game_title": "Number Duel",
+    "clear_title":"Before we start the duel",
     "welcome_message": "Think of a number between 0 and 100, and I’ll play the detective to uncover your secret! I’ll just need your help telling me if I’m getting close. Choose your challenge level and start the investigation",
     "levels": {
         "level 1": {
-            "name": "level 1",
-            "description": "I'll rely on pure logic."
+            "name": "Medium",
+            "description": "precise binary search, no time pressure"
         },
         "level 2": {
-            "name": "level 2",
-            "description": "I'll switch to expert mode and read your mind."
+            "name": "Hard",
+            "description": "Trichy + 5s timer"
         }
-    }
+    },
+    "start-play" : "Start Duel"
 }

@@ -2,7 +2,8 @@ import EntroOfGame from '../components/EntroOfGame/EntroOfGame'
 
 const Entro = () => {
     return (
-        <div>
+        <div
+        >
             <EntroOfGame />
         </div>
     )
