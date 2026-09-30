@@ -8,9 +8,62 @@
             "description": "بحث ثنائي بلا عداد وقت "
         },
         "level 2": {
-            "name": "🔥 صعب",
+            "name": " صعب 🔥",
             "description": "مراوغ + عداد ثواني"
         }
     },
-    "start-play" : "ابدأ المبارزة"
+    "start-play" : "ابدأ المبارزة",
+    "turn-computer":"دور الكمبيوتر",
+    "turn-player" : "دورك أنت",
+    "level-line" : "المستوى الحالي: ",
+
+    "messages": {
+    "larger": "رقمي أكبر ⬆️",
+    "smaller": "رقمي أصغر ⬇️",
+    "invalid": "الرجاء إدخال رقم صحيح بين 0 و 100"
+    },
+
+    "compCard": {
+    "computerTurn": "دور الكمبيوتر",
+    "attempts": "المحاولات:",
+    "computerGuessPrompt": "تخمين الكمبيوتر لرقمك",
+    "currentRange": "نطاق البحث الحالي",
+    "maxLabel": "الحد الأقصى: ",
+    "minLabel": "الحد الأدنى:",
+    "btnBig": "أكبر",
+    "btnSmall": "أصغر",
+    "btnCorrect": "صحيح"
+    },
+
+    "playerCard": {
+        "playerTurn": "دورك للتخمين",
+        "playerAttempts": "المحاولات:",
+        "tryCrackPrompt": "حاول تخمين الرقم السري للكمبيوتر (0-100)",
+        "guessBtn": "تخمين",
+        "timeLeft": "الوقت المتبقي:"
+    },
+    
+    "history": {
+    "title": "سجل المبارزة",
+    "thId": "#",
+    "thPlayer": "الطرف",
+    "thGuess": "التخمين",
+    "thResult": "النتيجة",
+    "empty": "لا توجد حركات حتى الآن، ابدأ اللعب!",
+    "you": "أنت",
+    "computer": "الكمبيوتر",
+    "resBig": "أكبر",
+    "resSmall": "أصغر",
+    "resCorrect": "صحيح"
+    },
+
+    "modal": {
+    "drawTitle": "تعادل يبدو أننا وصلنا إلى طريق مسدود",
+    "winnerTitle": "{{winner}} فزت في هذه الجولة",
+    "userAttempts": "محاولاتك: {{count}}",
+    "compAttempts": "محاولات الكمبيوتر: {{count}}",
+    "newRound": "جولة جديدة",
+    "changeLevel": "تغيير المستوى"
+    }
+
 }

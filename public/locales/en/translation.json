@@ -12,5 +12,58 @@
             "description": "Trichy + 5s timer"
         }
     },
-    "start-play" : "Start Duel"
+    "start-play" : "Start Duel",
+    "turn-computer":"Computer's turn",
+    "turn-player" : "Your turn",
+    "level-line" : "Current level: ",
+
+    "messages": {
+        "larger": "My number is larger ⬆️",
+        "smaller": "My number is smaller ⬇️",
+        "invalid": "Enter a valid number between 0 and 100"
+    },
+
+    "compCard": {
+    "computerTurn": "Computer's Turn",
+    "attempts": "Attempts: ",
+    "computerGuessPrompt": "Computer's guess for your number:",
+    "currentRange": "Current Search Range",
+    "maxLabel": "max:",
+    "minLabel": "min:",
+    "btnBig": "big",
+    "btnSmall": "small",
+    "btnCorrect": "correct"
+    },
+    
+    "playerCard": {
+        "playerTurn": "Your Turn to Guess",
+        "playerAttempts": "Attempts:",
+        "tryCrackPrompt": "Try to crack the computer's secret number (0–100)",
+        "guessBtn": "guess",
+        "timeLeft": "Time Left: "
+    },
+
+    "history": {
+    "title": "Duel History",
+    "thId": "#",
+    "thPlayer": "Party",
+    "thGuess": "Guess",
+    "thResult": "Result",
+    "empty": "No moves yet, start playing!",
+    "you": "You",
+    "computer": "Computer",
+    "resBig": "big",
+    "resSmall": "small",
+    "resCorrect": "correct"
+    },
+
+    "modal": {
+    "drawTitle": "Draw Looks like we hit a dead end",
+    "winnerTitle": "{{winner}} won this round",
+    "userAttempts": "Your attempts: {{count}}",
+    "compAttempts": "Computer attempts: {{count}}",
+    "newRound": "new round",
+    "changeLevel": "change level"
+    }
+
 }

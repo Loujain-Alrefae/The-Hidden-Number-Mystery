@@ -5,11 +5,12 @@
 
 body {
     font-family: "Cairo", sans-serif;
-    background: radial-gradient(900px 500px at 8% -8%, #FFD6A870 0%, transparent 55%),
-            radial-gradient(800px 500px at 100% 0%, #D9C6FF80 0%, transparent 55%),
-            radial-gradient(900px 600px at 50% 115%, #FFC1DE70 0%, transparent 55%),
-            #fff8ef;
+    background:#fff8ef;
     min-height: 100vh;
     margin: 0;
-    padding: 28px 16px 60px;
+    padding: 0; 
+    box-sizing: border-box;
+}
+.font-tajawal {
+    font-family: "Tajawal", sans-serif;
 }
