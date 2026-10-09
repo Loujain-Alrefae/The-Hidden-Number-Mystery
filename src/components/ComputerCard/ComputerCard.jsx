@@ -1,18 +1,22 @@
 import { FaAngleUp, FaChevronDown } from 'react-icons/fa';
 import { MdOutlineDone } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
+import { HiMiniComputerDesktop } from 'react-icons/hi2';
 
 const ComputerCard = ({turn, max, min, tryComp, compGuess, onEditRange}) => {
     const { t } = useTranslation();
 
     return (
-        <div  className={`w-[50%] flex  flex-col  p-5.5 border-2 border-solid border-[#e9d2ff] rounded-[20px] bg-[#ffffff] transition-all duration-300 ${turn === "computer" ? " shadow-[0_20px_46px_-20px_#8b5cf660] -translate-y-0.5 border-[#8b5cf6]" : "opacity-50 saturate-[0.55]"}`}>
+        <div  className={` w-full md:w-[50%] flex  flex-col  p-5.5 border-2 border-solid border-[#e9d2ff] rounded-[20px] bg-[#ffffff] transition-all duration-300 ${turn === "computer" ? " shadow-[0_20px_46px_-20px_#8b5cf660] -translate-y-0.5 border-[#8b5cf6]" : " opacity-50 saturate-[0.55] " }`}>
             <div className=' flex justify-between items-center mb-4'>
-                <p className=' text-[18px] '>🖥️ {t("compCard.computerTurn")}</p>
+                <div className=' flex justify-center items-center gap-2'>
+                    <span><HiMiniComputerDesktop size={20}/></span>
+                    <p className=' text-[18px] '> {t("compCard.computerTurn")}</p>
+                </div>
                 <p className=' py-1 px-2.5 text-[13px] text-[#2fa8ff] font-bold rounded-full bg-[#fff1e4] border border-solid border-[#e9d2ff] '>{t("compCard.attempts")} {tryComp}</p>
             </div>
             <p className=' text-center mb-1.5 text-[16px] text-[#8b7fa3] font-semibold'>{t("compCard.computerGuessPrompt")}</p>
-            <p className='w-[10%] mx-auto text-center text-[42px] text-[#2fa8ff] font-semibold '>{turn === "computer" ? compGuess : "--"}</p>
+            <p className=' mx-auto text-center text-[42px] text-[#2fa8ff] font-semibold '>{turn === "computer" ? compGuess : "--"}</p>
             {/* Interactive search range bar */}
             <div className='w-full  mt-3.5 mb-4.5' dir="rtl">
                 <div className='flex justify-between text-[14px] text-slate-500 mb-1'>

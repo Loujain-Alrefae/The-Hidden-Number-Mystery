@@ -18,8 +18,8 @@
     "level-line" : "Current level: ",
 
     "messages": {
-        "larger": "My number is larger ⬆️",
-        "smaller": "My number is smaller ⬇️",
+        "larger": "My number is larger than {{playerGuess}} ⬆️",
+        "smaller": "My number is smaller than {{playerGuess}} ⬇️",
         "invalid": "Enter a valid number between 0 and 100"
     },
 
@@ -64,6 +64,16 @@
     "compAttempts": "Computer attempts: {{count}}",
     "newRound": "new round",
     "changeLevel": "change level"
-    }
+    },
 
+    "tutorial": {
+    "computerCard": "Computer's turn: The computer will try to guess your number, and you have to answer with either larger, smaller, or correct.",
+    "playerCard": "Player's turn: Here is your turn to guess the computer's number and send it, and you will get the response right below the input field.",
+    "historyLog": "Match history: To remind you of the round numbers, one row shows the computer's guess and your reply, and another row shows your guess and the computer's reply.",
+    "next": "Next",
+    "finish": "Finish"
+    },
+
+    "helpButton": "Game Tutorial"
+    
 }

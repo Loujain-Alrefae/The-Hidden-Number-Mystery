@@ -11,7 +11,7 @@ const GameOverModal = ({resetGame, tryComp, tryUser, winner, isDraw}) => {
         <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
             {isDraw ? (
                 /* Game over card (Draw) */
-                <div className='w-[40%] flex justify-center items-center flex-col gap-3 p-6 bg-linear-to-r from-[#FFF1E4] via-[#FFE8F1] to-[#F3E1FF] border-2 border-solid border-[#E9D2FF] rounded-[18px] z-70'>
+                <div className=' flex justify-center items-center flex-col gap-3 p-6 bg-linear-to-r from-[#FFF1E4] via-[#FFE8F1] to-[#F3E1FF] border-2 border-solid border-[#E9D2FF] rounded-[18px] z-70'>
                     <p className='text-[24px] font-bold'>{t("modal.drawTitle")}</p>
                     <div className='flex gap-4'>
                         <p className='text-[16px]'>{t("modal.userAttempts", { count: tryUser })}</p>
@@ -29,11 +29,11 @@ const GameOverModal = ({resetGame, tryComp, tryUser, winner, isDraw}) => {
                 </div>
             ) : (
                 /* Winner card */
-                <div className='py-8.5 px-7 w-[40%] flex justify-center items-center flex-col gap-3 bg-white border-2 border-solid border-[#FCA5A5] rounded-[26px] z-70'>
+                <div className='py-8.5 px-7 flex justify-center items-center flex-col gap-3 bg-white border-2 border-solid border-[#FCA5A5] rounded-[26px] z-70'>
                     <p className='text-[24px] font-bold'>
                         {t("modal.winnerTitle", { winner: winner === "player" || winner === "You" || winner === "you" || winner === "أنت" ? (i18n.language === 'ar' ? 'أنت' : 'You') : (i18n.language === 'ar' ? 'الكمبيوتر' : 'Computer') })}
                     </p>
-                    <div className='flex gap-4'>
+                    <div className='flex gap-4 flex-wrap'>
                         <p className='text-[16px]'>{t("modal.userAttempts", { count: tryUser })}</p>
                         <p className='text-[16px]'>{t("modal.compAttempts", { count: tryComp })}</p>
                     </div>

@@ -17,9 +17,7 @@ const GamePage = () => {
     const [turn, setTurn] = useState('computer');
     const [min , setMin] = useState(0)
     const [max , setMax] = useState(100)
-    // const [sum , setSum] = useState()
     const [history , setHistory] = useState([])
-    //useState(Math.floor(Math.random() * (max - min + 1)) + 0) 
     const [compGuess , setCompGuess] = useState(Math.floor(Math.random() * 101))
     const [playerGuess , setPlayerGuess] = useState("")
     const [compNumber , setCompNumber] = useState(0)
@@ -29,6 +27,8 @@ const GamePage = () => {
     const [isGameOver , setIsGameOver] = useState(false)
     const [winner , setWinner] = useState("")
     const [timeLeft , setTimeLeft] =useState(5)
+    const [tutorialStep , setTutorialStep] = useState(1)
+    const [isTutorialActive , setIsTutorialActive] = useState(false)
 
     const inputRef = useRef(null);
 
@@ -40,6 +40,36 @@ const GamePage = () => {
     useEffect(() => {
         resetGame();
     }, []); 
+
+    useEffect(()=>{
+        const hasSeenTutorial = localStorage.getItem('hasSeenGameTutorial');
+        if(!hasSeenTutorial){
+            setIsTutorialActive(true)
+        }
+    },[])
+
+    const handleNextStep = ()=>{
+        if(tutorialStep === 1){
+            setTutorialStep(2)
+            playerCardRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }else if(tutorialStep === 2){
+            setTutorialStep(3)
+            playerCardRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }else{
+            finishTutorial();
+        }
+    }
+
+    const finishTutorial =()=>{
+        setIsTutorialActive(false);
+        localStorage.setItem('hasSeenGameTutorial','true')
+    }
+
+    const tutorialKeys = {
+        1: "tutorial.computerCard",
+        2: "tutorial.playerCard",
+        3: "tutorial.historyLog"
+    };
 
     //Ensure we are in hard level, it's the player's turn, and the round hasn't ended yet
     useEffect(()=>{
@@ -76,7 +106,7 @@ const GamePage = () => {
         setTurn("player")
     }
 
-    const edaitRange =(value) => {
+    const edaitRange = (value) => {
         if(value === "correct"){
             setWinner("computer")
             return;
@@ -88,22 +118,22 @@ const GamePage = () => {
             return;
         }
         if(value === "big"){
-            if (compGuess >= 100) {
-            toast.error(t("messages.invalid") || "لا يمكن أن يكون الرقم أكبر من 100!");
-            return;
-        }
+                if (compGuess >= 100) {
+                toast.error(t("messages.invalid") );
+                return;
+            }
             updatedMin = compGuess + 1
             setMin(updatedMin)
         }else if(value === "small"){
             if (compGuess <= 0) {
-            toast.error(t("messages.invalid") || "لا يمكن أن يكون الرقم أصغر من 0!");
-            return;
+                toast.error(t("messages.invalid"));
+                return;
             }
             updatedMax = compGuess - 1
             setMax(updatedMax)
         }
         setHistory(prev =>[
-            {id: prev.length+1 , player : "your divse", guess : compGuess , result: value }, ...prev
+            {id: prev.length+1 , player : "your divse", guess : compGuess , result: value },...prev
         ])
         return{updatedMin , updatedMax};
     }
@@ -136,11 +166,11 @@ const GamePage = () => {
         let playerNumber = Number(playerGuess)
         let retext = ""
         if(playerNumber > compNumber){
-            setMessage("messages.smaller")
+            setMessage("messages.smaller" ,{playerGuess : playerNumber})
             retext = "small"
             setTurn("computer")
         }else if(playerNumber < compNumber){
-            setMessage("messages.larger")
+            setMessage("messages.larger", {playerGuess : playerNumber})
             retext = "big"
             setTurn("computer")
         }else{
@@ -165,7 +195,7 @@ const GamePage = () => {
         // 2. Generate the new secret number and initial computer guess only once
         const newSecretNumber = Math.floor(Math.random() * 101);
         setCompNumber(newSecretNumber);
-        setCompGuess(Math.floor(Math.random() * 101));
+        setCompGuess(0);
         console.log("New Secret Number:", newSecretNumber);
         
         // 3. Reset counters, messages, and game status
@@ -179,7 +209,7 @@ const GamePage = () => {
     };
 
     return (
-        <div className='pt-7 py-4 pb-15  '>
+        <div className='mt-7 mx-6 mb-15  '>
             <ToastContainer 
                 position="top-center" 
                 autoClose={3000} 
@@ -187,14 +217,16 @@ const GamePage = () => {
                 newestOnTop
                 closeOnClick
                 rtl={i18n.language === 'ar'} 
+                style={{ width: 'auto', maxWidth: '400px', margin: '0 auto' }}
+                toastClassName="rounded-2xl shadow-xl border border-purple-100 my-2 mx-4"
             />       
-            <Header changeLang={toggleLanguage} level={level} turn={turn} />
+            <Header changeLang={toggleLanguage} level={level} turn={turn} setIsTutorialActive={setIsTutorialActive} setTutorialStep={setTutorialStep} />
             <GameContainer>
                 <CardsContainer dir={i18n.language === "en" ? "ltr" : "rtl"}>
-                    <ComputerCard turn={turn} compGuess={compGuess} min={min} max={max} tryComp={tryComp} onEditRange={calculateNextGuess}/>
-                    <PlayerCard level={level} turn={turn} tryUser={tryUser} timeLeft={timeLeft} winner={winner} playerGuess={playerGuess} setPlayerGuess={setPlayerGuess} evaluateGuess={evaluateGuess} inputRef={inputRef} message={message} />
+                    <ComputerCard   turn={turn} compGuess={compGuess} min={min} max={max} tryComp={tryComp} onEditRange={calculateNextGuess}/>
+                    <PlayerCard   level={level} turn={turn} tryUser={tryUser} timeLeft={timeLeft} winner={winner} playerGuess={playerGuess} setPlayerGuess={setPlayerGuess} evaluateGuess={evaluateGuess} inputRef={inputRef} message={message} />
                 </CardsContainer>
-                <HistoryOfMatch history={history}/>
+                <HistoryOfMatch  history={history}/>
             </GameContainer>
             {(isGameOver || winner) && (
                 <GameOverModal 
@@ -203,8 +235,28 @@ const GamePage = () => {
                     tryUser={tryUser}
                     tryComp={tryComp}
                     resetGame={resetGame}
-                />)}
-            {/* <GameLogic/> */}
+            />)}
+            {isTutorialActive && (
+                <div  className="fixed inset-0 bg-black/70 z-50 flex items-start justify-center pt-1.5 p-4 pointer-events-auto">
+                    <div className="bg-white rounded-2xl p-2.5 shadow-2xl max-w-80 w-full border-2 border-purple-200 relative animate-fadeIn z-50">
+                        <div className="flex justify-between items-center mb-4">
+                            <span className="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-bold">
+                            {tutorialStep} / 3
+                            </span>
+                        </div>
+
+                        <p dir ={i18n.language === "en" ? "ltr" : "rtl"} className="text-gray-800 text-lg font-medium mb-6 leading-relaxed">
+                            {t(tutorialKeys[tutorialStep])}
+                        </p>
+
+                        <div className="flex justify-end">
+                            <button onClick={handleNextStep} className="px-6 py-2 rounded-xl bg-purple-800 text-white font-bold hover:bg-purple-700 transition shadow-lg">
+                            {tutorialStep === 3 ? t('tutorial.finish') : t('tutorial.next')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
