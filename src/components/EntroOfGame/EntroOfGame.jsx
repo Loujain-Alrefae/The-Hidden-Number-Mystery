@@ -23,7 +23,7 @@ const EntroOfGame = () => {
                 <div className=' flex justify-center items-center gap-3 flex-wrap pb-6.5 ' >
                     {/* level medium */}
                     <Link to="level/medium"
-                        className={`cursor-pointer py-3 px-6.5 rounded-full border-[1.5px] border-solid border-[#bde6f1]  hover:border-[#2fa8ff] bg-[#2fa8ff] text-white transition duration-200 hover:-translate-y-0.5`}>
+                        className={`cursor-pointer py-3 px-6.5 rounded-full border-[1.5px] border-solid   border-[#2fa8ff] bg-[#2fa8ff] text-white transition duration-200 hover:-translate-y-0.5`}>
                         <p className="text-[14px]  font-bold  transition duration-200 ">
                             {t("levels.level 1.name")}
                         </p>
@@ -33,7 +33,7 @@ const EntroOfGame = () => {
                     </Link>
                     {/* level hard */}
                     <Link to="level/hard"
-                        className="cursor-pointer py-3 px-6.5 rounded-full border-[1.5px] border-solid border-[#ff7a3d]  hover:border-[#ef4444] bg-[#ef4444] text-white transition duration-200 hover:-translate-y-0.5  ">
+                        className="cursor-pointer py-3 px-6.5 rounded-full border-[1.5px] border-solid border-[#ef4444] bg-[#ef4444] text-white transition duration-200 hover:-translate-y-0.5  ">
                         <p
                             className={`text-[14px]  font-bold `} >
                             {t("levels.level 2.name")}

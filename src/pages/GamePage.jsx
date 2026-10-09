@@ -195,7 +195,7 @@ const GamePage = () => {
         // 2. Generate the new secret number and initial computer guess only once
         const newSecretNumber = Math.floor(Math.random() * 101);
         setCompNumber(newSecretNumber);
-        setCompGuess(0);
+        setCompGuess(Math.floor(Math.random() * 101));
         console.log("New Secret Number:", newSecretNumber);
         
         // 3. Reset counters, messages, and game status
