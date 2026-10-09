@@ -7,7 +7,7 @@ const ComputerCard = ({turn, max, min, tryComp, compGuess, onEditRange}) => {
     const { t } = useTranslation();
 
     return (
-        <div  className={` w-full md:w-[50%] flex  flex-col  p-5.5 border-2 border-solid border-[#e9d2ff] rounded-[20px] bg-[#ffffff] transition-all duration-300 ${turn === "computer" ? " shadow-[0_20px_46px_-20px_#8b5cf660] -translate-y-0.5 border-[#8b5cf6]" : " opacity-50 saturate-[0.55] " }`}>
+        <div  className={` w-full md:w-[50%] flex  flex-col  p-5.5 border-2 border-solid border-[#e9d2ff] rounded-[20px] bg-[#ffffff] transition-all duration-300 ${turn === "computer" ? " shadow-[0_20px_46px_-20px_#8b5cf660] -translate-y-0.5 border-[#8b5cf6]" : " opacity-50 saturate-[0.55] max-h-17.5 overflow-hidden sm:max-h-full sm:overflow-visible" }`}>
             <div className=' flex justify-between items-center mb-4'>
                 <div className=' flex justify-center items-center gap-2'>
                     <span><HiMiniComputerDesktop size={20}/></span>

@@ -19,7 +19,7 @@ const EntroOfGame = () => {
             </div>
             <div className='flex justify-center items-center flex-col px-6.5 py-8.5 bg-[#ffffff] border-[1.5px] border-solid border-[#e9d2ff] rounded-[22px]  shadow-[0_24px_60px_-24px_#8b5cf640]'>
                 <h2 className=' mb-4 text-[24px] font-bold'>{t("clear_title")}</h2>
-                <p className='  mt-0 mx-auto mb-6.5 text-[#8b7fa3] '>{t("welcome_message")}</p>
+                <p className='  mt-0 mx-auto mb-6.5 text-[#8b7fa3] leading-[1.7]'>{t("welcome_message")}</p>
                 <div className=' flex justify-center items-center gap-3 flex-wrap pb-6.5 ' >
                     {/* level medium */}
                     <Link to="level/medium"

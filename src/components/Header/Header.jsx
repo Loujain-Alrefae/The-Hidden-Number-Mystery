@@ -1,6 +1,7 @@
 import {MdOutlineLanguage } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { RxUpdate } from 'react-icons/rx';
 
 
 const Header = ({changeLang, level, turn, setTutorialStep, setIsTutorialActive}) => {
@@ -12,12 +13,12 @@ const { t, i18n } = useTranslation();
                 <p className=' font-tajawal text-[#8b7fa3] text-[14px] font-semibold '>{t("level-line")} <span className={` font-extrabold ${level === "hard" ? "text-[#ef4444]" : "text-[#1381de]"}`}>{level === "medium" ?  t("levels.level 1.name"): t("levels.level 2.name")}</span></p>
             </div>
             <div className=' flex items-center gap-2'>
-                <button className='flex justify-center items-center gap-1.5 h-9.5 py-0 px-3.5 font-tajawal border-[1.5px] border-solid border-[#e9d2ff] bg-[#ffffff] text-[#6d3fd1] font-extrabold rounded-2xl text-[16px] cursor-pointer hover:bg-[#FFF1E4] hover:border-[#FF7A3D] hover:text-[#E5591C] transition duration-200'
+                <button className='flex justify-center items-center gap-1.5 h-9.5 py-0 px-3.5 font-tajawal border-[1.5px] border-solid border-[#e9d2ff] bg-[#ffffff] text-[#1d293d] rounded-2xl text-[19px] cursor-pointer hover:bg-[#FFF1E4] hover:border-[#FF7A3D] hover:text-[#E5591C] transition duration-200'
                     onClick={changeLang}>{i18n.language === "en" ? " عربي" : "English" }<MdOutlineLanguage size={20}  className='text-[#2fa8ff] '/>
                 </button>
                 <button 
                     onClick={() => { setTutorialStep(1); setIsTutorialActive(true); }}
-                    className=" cursor-pointer border-[1.5px]  border-solid border-[#e9d2ff] bg-[#ffffff]  px-4 py-2 rounded-lg shadow  "
+                    className=" cursor-pointer border-[1.5px]  border-solid border-[#e9d2ff] bg-[#ffffff]  px-4 py-2 rounded-lg hover:bg-[#FFF1E4] hover:border-[#FF7A3D] hover:text-[#E5591C] transition duration-200  "
                     >
                     {t('helpButton')}
                 </button>
@@ -25,7 +26,7 @@ const { t, i18n } = useTranslation();
                     <span className={` block w-2.25 h-2.25 rounded-[50%] ${turn === "computer" ? "bg-[#8b5cf6] shadow-[0_0_10px_#8b5cf6]"  : "bg-[#ff5c93] shadow-[0_0_10px_#ff5c93]" }`}></span>
                     <p className=' font-tajawal'>{turn === "computer" ? t("turn-computer") : t("turn-player")}</p>
                 </div> */}
-                <Link  className=' w-9.5 h-9.5 flex justify-center items-center rounded-xl border-[1.5px] border-solid border-[#e9d2ff] bg-[#ffffff] text-[#6d3fd1] cursor-pointer hover:bg-[#FFF1E4] hover:border-[#FF7A3D] hover:text-[#E5591C] hover:rotate-90 transition duration-200 ' to="/">⟳</Link>
+                <Link  className=' w-9.5 h-9.5 flex justify-center items-center rounded-xl border-[1.5px] border-solid border-[#e9d2ff] bg-[#ffffff] text-[#6d3fd1] cursor-pointer hover:bg-[#FFF1E4] hover:border-[#FF7A3D] hover:text-[#E5591C] hover:rotate-90 transition duration-200 ' to="/"><RxUpdate size={22} /> </Link>
             </div>
         </div>
     )
